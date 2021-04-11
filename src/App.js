@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+import  React,{ useEffect,useState} from 'react';
 import './App.css';
 
-function App() {
+
+const App=()=>{
+
+
+  const [data, setData] = useState(null)
+  const fectchJoke="https://api.chucknorris.io/jokes/random?category=dev"
+  const fetchURL = "https://api.chucknorris.io/jokes/random?category=dev"
+
+
+const dev="dev"
+
+  const getData = () =>
+    fetch(`${fetchURL}`)
+      .then((res) => res.json())
+
+
+  useEffect(() => {
+    getData().then((data) => setData(data))
+    console.log(data)
+    
+  }, [])
+
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {data.value}
+      
+      {/* <div>
+      {data?.map((item) => 
+        
+          <h6>{item.value}</h6>
+        
+      )}
+    </div> */}
     </div>
   );
 }
