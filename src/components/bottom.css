@@ -1,0 +1,19 @@
+.categories > button {
+  margin: 0.7em;
+  border-radius: 20px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.categories {
+  margin: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 4px;
+  padding: 10px;
+}

@@ -1,41 +1,35 @@
 import  React,{ useEffect,useState} from 'react';
+import {getJoke,getData} from './components/apicall';
+// import  TopComponent from './components/TopComponent'
 import './App.css';
 
 
 const App=()=>{
 
-
   const [data, setData] = useState(null)
-  const fectchJoke="https://api.chucknorris.io/jokes/random?category=dev"
-  const fetchURL = "https://api.chucknorris.io/jokes/random?category=dev"
-
-
-const dev="dev"
-
-  const getData = () =>
-    fetch(`${fetchURL}`)
-      .then((res) => res.json())
-
-
-  useEffect(() => {
-    getData().then((data) => setData(data))
-    console.log(data)
-    
-  }, [])
-
+  const [joke, setJoke] = useState(null)
+  const [selectedCategory,setCategory] = useState(null)
   
 
+    useEffect(() => {
+    getData().then((data) => setData(data))
+   
+  }, [])
+
+  //  const handleCategory=(index)=>{
+  //       setCategory(data[index])
+  //       console.log(selectedCategory)
+  //  }
+
   return (
-    <div className="App">
-      {data.value}
+    <div className="container">
+      <div className="categories">
+            {data?.map((item ,index) => 
+        
+        <button key={index} >{item}</button>
       
-      {/* <div>
-      {data?.map((item) => 
-        
-          <h6>{item.value}</h6>
-        
-      )}
-    </div> */}
+            )}
+        </div> 
     </div>
   );
 }
