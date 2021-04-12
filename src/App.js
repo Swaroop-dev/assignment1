@@ -7,7 +7,7 @@ import './App.css';
 class App extends Component{
   state = {
     data:null,
-    category:null,
+    category:"",
     jokes:null
   };
 
@@ -16,8 +16,13 @@ class App extends Component{
         .then((data)=>this.setState({data:data}))
     }
 
-    handleCategoryChange(index){
-      this.setState({category:this.state.data[index]})
+    handleCategoryChange=(index)=>{  
+      let d2=this.state.data[index]         
+      this.setState({category:d2})
+      getJoke(this.state.category).then((d1)=>this.setState({jokes:d1.value}))
+    }
+
+    handleClick=()=>{
       getJoke(this.state.category).then((d1)=>this.setState({jokes:d1.value}))
     }
 
@@ -28,12 +33,13 @@ class App extends Component{
       <div className="categories">
             {this.state.data?.map((item ,index) => 
         <button key={index} onClick={()=>this.handleCategoryChange(index)} >{item}</button>
-            )}
-            
+            )} 
         </div>        
     </div>
-    {this.state.jokes!==null && <BottomComponent data={this.state.jokes}/>}
+    {this.state.category!==null && <BottomComponent data={this.state.jokes}/>}
+    <button onClick={()=>this.handleClick()}></button>
     </div>
+
   );
   }
 }
