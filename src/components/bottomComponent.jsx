@@ -3,16 +3,17 @@ import {getJoke} from './apicall'
 
 
 const BottomComponent = (props) => {
-    const [joke,setJoke]=useState(null)
-    
-    useEffect(()=>{
-        getJoke(props.category)
-            .then(({value})=>setJoke(value))
-    },[])
+
+    // const [joke,setJoke]=useState(null)
+
+    // useEffect(()=>{
+    //     getJoke(props.category)
+    //         .then(({value})=>setJoke(value))
+    // },[])
 
     return(
         <div>
-            {joke}
+            {props.data}
         </div>
     )
 
