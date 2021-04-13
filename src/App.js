@@ -17,29 +17,31 @@ class App extends Component{
     }
 
     handleCategoryChange=(index)=>{  
-      let d2=this.state.data[index]         
-      this.setState({category:d2})
-      getJoke(this.state.category).then((d1)=>this.setState({jokes:d1.value}))
+      const d2=this.state.data[index]
+      this.setState({category:d2})        
+      getJoke(d2)
+      .then((d1)=>this.setState({jokes:d1.value}))
+      
+      
     }
-
     handleClick=()=>{
       getJoke(this.state.category).then((d1)=>this.setState({jokes:d1.value}))
     }
 
   render(){
+    const {data,category,jokes}=this.state
     return (
     <div>
     <div className="container">
       <div className="categories">
-            {this.state.data?.map((item ,index) => 
+            {data?.map((item ,index) => 
         <button key={index} onClick={()=>this.handleCategoryChange(index)} >{item}</button>
             )} 
         </div>        
     </div>
-    {this.state.category!==null && <BottomComponent data={this.state.jokes}/>}
+    {jokes!==null && <BottomComponent data={jokes}/>}
     <button onClick={()=>this.handleClick()}></button>
     </div>
-
   );
   }
 }

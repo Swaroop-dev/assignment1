@@ -3,8 +3,9 @@ const fetchURL = "https://api.chucknorris.io/jokes/categories"
 
 
 export const getJoke = (category) =>{
+    
     const newfetch=fectchJoke+category
-    return fetch(`${newfetch}`)
+    return fetch(newfetch)
       .then((res) => res.json())
   }
 

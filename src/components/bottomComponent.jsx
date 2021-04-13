@@ -3,7 +3,7 @@ import {getJoke} from './apicall'
 
 
 const BottomComponent = (props) => {
-
+        
 
     return(
         <div>
