@@ -1,81 +1,70 @@
 .App {
   text-align: center;
-  margin: auto;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.categories {
-  margin: 5px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 4px;
-  padding: 10px;
 }
 
 .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1px;
+  align-items: flex-start;
+  padding: 10px;
   margin: auto;
   margin-top: 20px;
   background-color: #cfd7e7;
-  width: 55%;
+  width: 60%;
 }
 
-.categories > button {
-  margin: 0.7em;
-  border-radius: 20px;
-  background-color: #4caf50;
-  border: none;
-  color: white;
+.container > button:focus {
+  background-color: rgb(105, 200, 238);
+  outline: none;
+}
+
+.container > button {
+  border-radius: 8px;
+  background-color: #eef5ee;
+  border: white;
+  color: black;
+  font-family: "Century Gothic";
+  font-weight: bold;
+  margin: 10px;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
+  box-shadow: 2px 2px 2px #7e8594;
 }
+
 .btn {
   font-size: 14px;
   border: none;
-  color: blue;
-  background-color: white;
-  margin: 10px;
-  padding: 5px;
+  outline: rgb(105, 200, 238);
+  color: rgb(105, 200, 238);
+  background-color: rgb(236, 228, 228);
+  margin-top: 10px;
+  padding: 10px;
+}
+.btn:focus {
+  box-shadow: 2px 2px 2px #7e8594;
 }
 
 .joke {
+  padding: 30px 5px;
+  width: 60%;
   margin: auto;
+  background-color: rgb(105, 200, 238);
+  color: white;
+}
 
-  background-color: rgb(109, 68, 184);
-  margin: auto;
-  width: 55%;
+@media only screen and (max-width: 900px) {
+  .container {
+    width: 90%;
+  }
+  .container > button {
+    margin: 5px 3px;
+    padding: 10px 10px;
+  }
+  .joke {
+    padding: 30px 5px;
+    width: 90%;
+    margin: auto;
+  }
 }

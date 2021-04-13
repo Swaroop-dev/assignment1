@@ -31,20 +31,20 @@ class App extends Component{
     const {data,category,jokes}=this.state
     return (
     <div className="App">
+    <h1>Chuck Norries</h1>
     <div className="container">
-      <div className="categories">
+      
             {data?.map((item ,index) => 
         <button key={index} onClick={()=>this.handleCategoryChange(index)} >{item}</button>
             )} 
-        </div>        
+               
     </div>
-    
+    {jokes!==null &&  <h3>Selected Category : {category}</h3>}
     {jokes!==null && <div className="joke">
       <BottomComponent data={jokes}/>
-     
       </div>
       }
-     {category!==null && <button className="btn" onClick={()=>this.handleClick()}>refresh</button>}  
+     {category!==null && <button className="btn" onClick={()=>this.handleClick()}>New Joke</button>}  
     </div>
    
     
