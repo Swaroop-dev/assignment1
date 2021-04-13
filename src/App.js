@@ -7,31 +7,30 @@ import './App.css';
 class App extends Component{
   state = {
     data:null,
-    category:"",
+    category:null,
     jokes:null
   };
 
-    componentDidMount(){
+  componentDidMount(){
       getData()
         .then((data)=>this.setState({data:data}))
-    }
+  }
 
-    handleCategoryChange=(index)=>{  
+  handleCategoryChange=(index)=>{  
       const d2=this.state.data[index]
       this.setState({category:d2})        
       getJoke(d2)
-      .then((d1)=>this.setState({jokes:d1.value}))
-      
-      
-    }
-    handleClick=()=>{
+      .then((d1)=>this.setState({jokes:d1.value}))            
+  }
+
+  handleClick=()=>{
       getJoke(this.state.category).then((d1)=>this.setState({jokes:d1.value}))
-    }
+  }
 
   render(){
     const {data,category,jokes}=this.state
     return (
-    <div>
+    <div className="App">
     <div className="container">
       <div className="categories">
             {data?.map((item ,index) => 
@@ -39,9 +38,16 @@ class App extends Component{
             )} 
         </div>        
     </div>
-    {jokes!==null && <BottomComponent data={jokes}/>}
-    <button onClick={()=>this.handleClick()}></button>
+    
+    {jokes!==null && <div className="joke">
+      <BottomComponent data={jokes}/>
+     
+      </div>
+      }
+     {category!==null && <button className="btn" onClick={()=>this.handleClick()}>refresh</button>}  
     </div>
+   
+    
   );
   }
 }

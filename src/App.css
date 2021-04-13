@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: auto;
 }
 
 .App-logo {
@@ -43,7 +44,6 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 4px;
   padding: 10px;
-  width:100%;
 }
 
 .container {
@@ -62,5 +62,20 @@
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  
+}
+.btn {
+  font-size: 14px;
+  border: none;
+  color: blue;
+  background-color: white;
+  margin: 10px;
+  padding: 5px;
+}
+
+.joke {
+  margin: auto;
+
+  background-color: rgb(109, 68, 184);
+  margin: auto;
+  width: 55%;
 }

@@ -1,10 +1,12 @@
-import React,{useState,useEffect} from 'react'
-import {getJoke} from './apicall'
+import React from 'react'
+
 
 
 const BottomComponent = (props) => {
         
-
+    if(!props.data){
+        return(<h1>loading...</h1>)
+    }
     return(
         <div>
             {props.data}
